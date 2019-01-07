@@ -1,0 +1,69 @@
+{
+  "general": {
+    "language": "ko-KR",
+    "layout": "main",
+    "commandsPerPage": 10
+  },
+  "speech": {
+    "device": "default",
+    "keyFilename": "./keyfile.json",
+    "hotwords": [
+      {
+        "keyword": "smart mirror",
+        "model": "smart_mirror.umdl"
+      }
+    ],
+    "sensitivity": 0.5
+  },
+  "remote": {
+    "enabled": true,
+    "port": 8080
+  },
+  "giphy": {
+    "key": "dc6zaTOxFJmzC"
+  },
+  "greeting": {
+    "option": "allDay"
+  },
+  "autoTimer": {
+    "mode": "disabled",
+    "autoWake": "07:00:00",
+    "autoSleep": 40,
+    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
+    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
+  },
+  "calendar": {
+    "maxResults": 9,
+    "maxDays": 9,
+    "showCalendarNames": true
+  },
+  "lastfm": {
+    "refreshInterval": 0.6
+  },
+  "fitbit": {
+    "timeout": 10000,
+    "uris": {
+      "authorizationUri": "https://www.fitbit.com",
+      "authorizationPath": "/oauth2/authorize",
+      "tokenUri": "https://api.fitbit.com",
+      "tokenPath": "/oauth2/token"
+    },
+    "authorization_uri": {
+      "redirect_uri": "http://localhost:4000/fitbit_auth_callback/",
+      "response_type": "code",
+      "scope": "activity nutrition profile settings sleep social weight heartrate",
+      "state": "3(#0/!~"
+    }
+  },
+  "forecast": {
+    "key": "af0d2abfff4ec7159017213ad753ddb8",
+    "units": "auto",
+    "refreshInterval": 2
+  },
+  "traffic": {
+    "refreshInterval": "5"
+  },
+  "rss": {
+    "refreshInterval": 120
+  }
+}

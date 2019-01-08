@@ -1,8 +1,24 @@
 {
   "general": {
-    "language": "ko-KR",
+    "language": "en-US",
     "layout": "main",
-    "commandsPerPage": 10
+    "commandsPerPage":10
+  },
+  "remote": {
+    "enabled": true,
+    "firstRun": true,
+    "port": 8080
+  },
+  "autoTimer": {
+    "mode": "disabled",
+    "autoSleep": 40,
+    "autoWake": "07:00:00",
+    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
+    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
+  },
+  "motion": {
+    "enabled": false,
+    "pin": "GPIO26"
   },
   "speech": {
     "device": "default",
@@ -13,32 +29,56 @@
         "model": "smart_mirror.umdl"
       }
     ],
-    "sensitivity": 0.5
+    "sensitivity": "0.5"
   },
-  "remote": {
-    "enabled": true,
-    "port": 8080
+  "forecast": {
+    "key": "",
+    "units": "auto",
+    "refreshInterval": 2
   },
-  "giphy": {
-    "key": "dc6zaTOxFJmzC"
-  },
-  "greeting": {
-    "option": "allDay"
-  },
-  "autoTimer": {
-    "mode": "disabled",
-    "autoWake": "07:00:00",
-    "autoSleep": 40,
-    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
-    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
+  "light": {
+    "settings": {
+      "hueIp": "",
+      "hueUsername": ""
+    },
+    "setup": []
   },
   "calendar": {
+    "icals": [
+      ""
+    ],
     "maxResults": 9,
     "maxDays": 9,
     "showCalendarNames": true
   },
+  "giphy": {
+    "key": "dc6zaTOxFJmzC"
+  },
+  "youtube": {
+    "key": ""
+  },
+  "soundcloud": {
+    "key": ""
+  },
+  "traffic": {
+    "key": "",
+    "refreshInterval": 5,
+    "trips": []
+  },
+  "rss": {
+    "feeds": [],
+    "refreshInterval": 120
+  },
+  "stock": {
+    "names": []
+  },
   "lastfm": {
+    "key": "",
+    "user": "",
     "refreshInterval": 0.6
+  },
+  "todoist": {
+    "key": ""
   },
   "fitbit": {
     "timeout": 10000,
@@ -54,16 +94,5 @@
       "scope": "activity nutrition profile settings sleep social weight heartrate",
       "state": "3(#0/!~"
     }
-  },
-  "forecast": {
-    "key": "af0d2abfff4ec7159017213ad753ddb8",
-    "units": "auto",
-    "refreshInterval": 2
-  },
-  "traffic": {
-    "refreshInterval": "5"
-  },
-  "rss": {
-    "refreshInterval": 120
   }
 }

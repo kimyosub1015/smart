@@ -1,24 +1,8 @@
 {
   "general": {
-    "language": "en-US",
+    "language": "ko-KR",
     "layout": "main",
-    "commandsPerPage":10
-  },
-  "remote": {
-    "enabled": true,
-    "firstRun": true,
-    "port": 8080
-  },
-  "autoTimer": {
-    "mode": "disabled",
-    "autoSleep": 40,
-    "autoWake": "07:00:00",
-    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
-    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
-  },
-  "motion": {
-    "enabled": false,
-    "pin": "GPIO26"
+    "commandsPerPage": 10
   },
   "speech": {
     "device": "default",
@@ -29,56 +13,36 @@
         "model": "smart_mirror.umdl"
       }
     ],
-    "sensitivity": "0.5"
+    "sensitivity": 0.5
   },
-  "forecast": {
-    "key": "",
-    "units": "auto",
-    "refreshInterval": 2
-  },
-  "light": {
-    "settings": {
-      "hueIp": "",
-      "hueUsername": ""
-    },
-    "setup": []
-  },
-  "calendar": {
-    "icals": [
-      ""
-    ],
-    "maxResults": 9,
-    "maxDays": 9,
-    "showCalendarNames": true
+  "remote": {
+    "enabled": true,
+    "port": 8080
   },
   "giphy": {
     "key": "dc6zaTOxFJmzC"
   },
-  "youtube": {
-    "key": ""
+  "geoPosition": {
+    "latitude": "37.497942",
+    "longitude": "127.0254323"
   },
-  "soundcloud": {
-    "key": ""
+  "greeting": {
+    "option": "allDay"
   },
-  "traffic": {
-    "key": "",
-    "refreshInterval": 5,
-    "trips": []
+  "autoTimer": {
+    "mode": "disabled",
+    "autoWake": "07:00:00",
+    "autoSleep": 40,
+    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
+    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
   },
-  "rss": {
-    "feeds": [],
-    "refreshInterval": 120
-  },
-  "stock": {
-    "names": []
+  "calendar": {
+    "maxResults": 9,
+    "maxDays": 9,
+    "showCalendarNames": true
   },
   "lastfm": {
-    "key": "",
-    "user": "",
     "refreshInterval": 0.6
-  },
-  "todoist": {
-    "key": ""
   },
   "fitbit": {
     "timeout": 10000,
@@ -94,5 +58,16 @@
       "scope": "activity nutrition profile settings sleep social weight heartrate",
       "state": "3(#0/!~"
     }
+  },
+  "traffic": {
+    "refreshInterval": "5"
+  },
+  "forecast": {
+    "key":"af0d2abfff4ec7159017213ad753ddb8",
+    "units": "auto",
+    "refreshInterval": 2
+  },
+  "rss": {
+    "refreshInterval": 120
   }
 }

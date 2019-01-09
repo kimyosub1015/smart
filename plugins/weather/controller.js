@@ -8,8 +8,8 @@ function Weather($scope, $interval, $http, GeolocationService) {
 		return $http.jsonp('https://api.darksky.net/forecast/' + config.forecast.key + '/' +
             geoposition.coords.latitude + ',' + geoposition.coords.longitude + '?units=' +
             config.forecast.units + "&lang=" + language + "&callback=JSON_CALLBACK")
-            .then(function (response) {
-	return weather.forecast = response;
+            .then(function (response) { //then을 통해 (weathrt.forecast)객체로 json데이터를 넣어줌..
+	return weather.forecast = response;	//angular에서 json데이터를 가져올때 $http.jsonp(json이포함된url)&callback=JSON_CALLBACK을 사용
 });
 	};
 
@@ -25,12 +25,12 @@ function Weather($scope, $interval, $http, GeolocationService) {
 		if (weather.forecast === null) {
 			return null;
 		}
-		weather.forecast.data.currently.day = moment.unix(weather.forecast.data.currently.time).format('ddd');
-		weather.forecast.data.currently.temperature = parseFloat(weather.forecast.data.currently.temperature).toFixed(0);
-		weather.forecast.data.currently.wi = "wi-forecast-io-" + weather.forecast.data.currently.icon;
-		weather.forecast.data.currently.iconAnimation = weather.forecast.data.currently.icon;
-		return weather.forecast.data.currently;
-	}
+		weather.forecast.data.currently.day = moment.unix(weather.forecast.data.currently.time).format('ddd');	//moment.unit()는 유닉스시간->유니코드시간으로 바꿔줌
+		weather.forecast.data.currently.temperature = parseFloat(weather.forecast.data.currently.temperature).toFixed(0); //parseFloat()은 정수든 소수든 다 불러온다.(문자는 NAN이 뜬다.) 중간에 공백이 있어도 데이터만 뜨고 20 10 이 있을때 앞의 숫자만 뜬다.
+		weather.forecast.data.currently.wi = "wi-forecast-io-" + weather.forecast.data.currently.icon;		//toFixed()는 ()안의 숫자자리수 만큼 소수자리를 나타낸다.
+		weather.forecast.data.currently.iconAnimation = weather.forecast.data.currently.icon; //icon은 rain sunny를 나타냄. (json 데이터에서)
+		return weather.forecast.data.currently;		//위의 wi-forecast-io- 는 weather아이콘을 나타내는것으로 이폴더html - main index.html(class에 이름 지정) - app/css/weather-icons.css , -app/fonts/사이트 깃파일들 다 넣기(fonts)관련
+	}												//http://erikflowers.github.io/weather-icons/  <<- 여기 사이트에 사용법 나옴
 
 	weather.weeklyForecast = function () {
 		if (weather.forecast === null) {
@@ -42,7 +42,7 @@ function Weather($scope, $interval, $http, GeolocationService) {
 			weather.forecast.data.daily.data[i].temperatureMin = parseFloat(weather.forecast.data.daily.data[i].temperatureMin).toFixed(0);
 			weather.forecast.data.daily.data[i].temperatureMax = parseFloat(weather.forecast.data.daily.data[i].temperatureMax).toFixed(0);
 			weather.forecast.data.daily.data[i].wi = "wi-forecast-io-" + weather.forecast.data.daily.data[i].icon;
-			weather.forecast.data.daily.data[i].counter = String.fromCharCode(97 + i);
+			weather.forecast.data.daily.data[i].counter = String.fromCharCode(97 + i);	//fromCharCode()는 숫자 유니코드->문자열 변환해준다.
 			weather.forecast.data.daily.data[i].iconAnimation = weather.forecast.data.daily.data[i].icon;
 		}
 		return weather.forecast.data.daily;
@@ -75,4 +75,4 @@ function Weather($scope, $interval, $http, GeolocationService) {
 }
 
 angular.module('SmartMirror')
-    .controller('Weather', Weather);
+    .controller('Weather', Weather);	//여기서 두번째 Weather는 맨위의 Weather()을 가져온다.

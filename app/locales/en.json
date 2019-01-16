@@ -224,6 +224,11 @@
             "text": "Remove ________ from (my) ________ list",
             "voice": "Remove *element from (my) *project list",
             "description": "Remove item from requested list."
+        },
+        "subway_show":{
+            "text": "show subway (station)",
+            "voice": "show subway *station",
+            "description": "tell station name in Korean and this connedted subway controller.js" 
         }
     },
     "fitbit": {

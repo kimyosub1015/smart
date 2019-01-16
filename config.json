@@ -2,23 +2,7 @@
   "general": {
     "language": "en-US",
     "layout": "main",
-    "commandsPerPage":10
-  },
-  "remote": {
-    "enabled": true,
-    "firstRun": true,
-    "port": 8080
-  },
-  "autoTimer": {
-    "mode": "disabled",
-    "autoSleep": 40,
-    "autoWake": "07:00:00",
-    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
-    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
-  },
-  "motion": {
-    "enabled": false,
-    "pin": "GPIO26"
+    "commandsPerPage": 10
   },
   "speech": {
     "device": "default",
@@ -29,56 +13,35 @@
         "model": "smart_mirror.umdl"
       }
     ],
-    "sensitivity": "0.5"
+    "sensitivity": 0.5
   },
-  "forecast": {
-    "key": "",
-    "units": "auto",
-    "refreshInterval": 2
+  "remote": {
+    "enabled": true,
+    "port": 8080
   },
-  "light": {
-    "settings": {
-      "hueIp": "",
-      "hueUsername": ""
-    },
-    "setup": []
-  },
-  "calendar": {
-    "icals": [
-      ""
-    ],
-    "maxResults": 9,
-    "maxDays": 9,
-    "showCalendarNames": true
+  "rss": {
+    "refreshInterval": 120
   },
   "giphy": {
     "key": "dc6zaTOxFJmzC"
   },
-  "youtube": {
-    "key": ""
+  "greeting": {
+    "option": "allDay"
   },
-  "soundcloud": {
-    "key": ""
+  "calendar": {
+    "maxResults": 9,
+    "maxDays": 9,
+    "showCalendarNames": true
   },
-  "traffic": {
-    "key": "",
-    "refreshInterval": 5,
-    "trips": []
-  },
-  "rss": {
-    "feeds": [],
-    "refreshInterval": 120
-  },
-  "stock": {
-    "names": []
+  "autoTimer": {
+    "mode": "disabled",
+    "autoWake": "07:00:00",
+    "autoSleep": 40,
+    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
+    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
   },
   "lastfm": {
-    "key": "",
-    "user": "",
     "refreshInterval": 0.6
-  },
-  "todoist": {
-    "key": ""
   },
   "fitbit": {
     "timeout": 10000,
@@ -94,5 +57,26 @@
       "scope": "activity nutrition profile settings sleep social weight heartrate",
       "state": "3(#0/!~"
     }
+  },
+  "forecast": {
+    "key": "8909ebf6426c8dd1fd4a91edb232e8ca",
+    "units": "auto",
+    "refreshInterval": 2
+  },
+  "geoPosition": {
+    "latitude": "37.56667",
+    "longitude": "126.97806"
+  },
+  "traffic": {
+    "key": "ApcATdRZWrasFdIwcJ-X8PCN8kdw7a6OOALxNrRERHXZbZosPcYZe5ZcMOXQscMu",
+    "refreshInterval": "5",
+    "trips": [
+      {
+        "name": "서울-수원",
+        "mode": "Driving",
+        "origin": "seoul",
+        "destination": "suwon"
+      }
+    ]
   }
 }

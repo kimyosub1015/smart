@@ -217,3 +217,6 @@ app.on('will-quit', function () {
 		exec(config.autoTimer.wakeCmd).kill()
 	}
 })
+var tx = "Hello Smartmirror?";
+console.log(tx);
+console.log("hello?");

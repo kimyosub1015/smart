@@ -102,13 +102,14 @@
 				Focus.change("default");
 			}
 			// List commands
+			// 커멘드 목록 출력하는 부분
 			SpeechService.addCommand('list', function () {
 				console.debug("Here is a list of commands...");
-				console.log(SpeechService.commands);
-				$scope.commands.commandPage = []
-				$scope.commands.commandPage = SpeechService.getCommands();
-				$scope.commands.index = 0
-				$scope.commands.totalPages = $scope.commands.commandPage.length
+				console.log(SpeechService.commands); //웹브라우저 콘솔에 출력
+				$scope.commands.commandPage = [] // 페이지 수라는 뜻의 변수를 선언
+				$scope.commands.commandPage = SpeechService.getCommands(); // 페이지수를 getCommands 함수를 따라 대입
+				$scope.commands.index = 0 // 인덱스를 0으로 선언
+				$scope.commands.totalPages = $scope.commands.commandPage.length // 총 페이지 수는 commandpage의 길이를 대입해서 선언
 				Focus.change("commands");
 			});
 

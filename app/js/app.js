@@ -33,3 +33,6 @@
 }]);
 
 } (window.angular));
+var tx = "Hello Smartmirror?";
+console.log(tx);
+console.log("hello?");

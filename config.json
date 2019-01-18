@@ -1,6 +1,6 @@
 {
   "general": {
-    "language": "ko-KR",
+    "language": "en-US",
     "layout": "main",
     "commandsPerPage": 10
   },
@@ -19,9 +19,6 @@
     "enabled": true,
     "port": 8080
   },
-  "giphy": {
-    "key": "dc6zaTOxFJmzC"
-  },
   "geoPosition": {
     "latitude": "37.497942",
     "longitude": "127.0254323"
@@ -29,17 +26,8 @@
   "greeting": {
     "option": "allDay"
   },
-  "autoTimer": {
-    "mode": "disabled",
-    "autoWake": "07:00:00",
-    "autoSleep": 40,
-    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
-    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
-  },
-  "calendar": {
-    "maxResults": 9,
-    "maxDays": 9,
-    "showCalendarNames": true
+  "rss": {
+    "refreshInterval": 120
   },
   "lastfm": {
     "refreshInterval": 0.6
@@ -59,15 +47,27 @@
       "state": "3(#0/!~"
     }
   },
+  "giphy": {
+    "key": "dc6zaTOxFJmzC"
+  },
+  "calendar": {
+    "maxResults": 9,
+    "maxDays": 9,
+    "showCalendarNames": true
+  },
   "traffic": {
     "refreshInterval": "5"
   },
   "forecast": {
-    "key":"af0d2abfff4ec7159017213ad753ddb8",
+    "key": "af0d2abfff4ec7159017213ad753ddb8",
     "units": "auto",
     "refreshInterval": 2
   },
-  "rss": {
-    "refreshInterval": 120
+  "autoTimer": {
+    "mode": "disabled",
+    "autoWake": "07:00:00",
+    "autoSleep": 40,
+    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
+    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
   }
 }

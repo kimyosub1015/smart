@@ -224,6 +224,16 @@
             "text": "Remove ________ from (my) ________ list",
             "voice": "Remove *element from (my) *project list",
             "description": "Remove item from requested list."
+        },        
+        "show_img": {
+            "text": "show img",
+            "voice": "show img",
+            "description": "이미지 보여줌."
+        },
+        "hide_img": {
+            "text": "hide img",
+            "voice": "hide img",
+            "description": "이미지 없앰."
         }
     },
     "fitbit": {

@@ -29,7 +29,6 @@
   <!-- endbower -->
 
 </head>
-
 <body ng-controller="MirrorCtrl" ng-cloak>
   <div class="top">
     <div class="top-left">
@@ -42,6 +41,13 @@
       <div ng-include="'plugins/stock/index.html'"></div>
       <div ng-include="'plugins/tvshows/index.html'"></div>
       <div ng-include="'plugins/ha-display/index.html'"></div>
+    </div>
+  </div>   
+  <div class="backImg">
+    <div class="Imgg">
+      <div ng-controller="Img"> 
+        <div ng-include="plugins/backimg/index.html"></div>
+      </div>
     </div>
   </div>
   <div class="container" ng-class="(listening == true)?'listening':'not-listening'">
@@ -58,6 +64,7 @@
       <div ng-include="'plugins/reminder/index.html'"></div>
       <div ng-include="'plugins/timer/index.html'"></div>
       <div ng-include="'plugins/todoist/index.html'"></div>
+      <div ng-include="'plugins/backimg/index.html'"></div>
     </div>
     <div class="bottom-center">
       <!-- Command list -->
@@ -139,6 +146,7 @@
   <script src="plugins/maker/controller.js"></script>
   <script src="plugins/todoist/controller.js"></script>
   <script src="plugins/ha-display/controller.js"></script>
+  <script src="plugins/backimg/controller.js"></script>
 
 </body>
 

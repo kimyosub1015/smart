@@ -64,7 +64,7 @@ remote.start = function () {
 		try {
 			var files = req.files;
 		
-			console.dir('#===== 업로드된 첫번째 파일 정보 =====#')
+			console.dir('#===== upload information =====#')
 			console.dir(req.files[0]);
 			console.dir('#=====#')
 			
@@ -75,7 +75,7 @@ remote.start = function () {
 				size = 0;
 			
 			if (Array.isArray(files)) {   // 배열에 들어가 있는 경우 (설정에서 1개의 파일도 배열에 넣게 했음)
-				console.log("배열에 들어있는 파일 갯수 : %d", files.length);
+				console.log("file account from array : %d", files.length);
 				
 				for (var index = 0; index < files.length; index++) {
 					originalname = files[index].originalname;
@@ -85,7 +85,7 @@ remote.start = function () {
 				}
 				
 			} else {   // 배열에 들어가 있지 않은 경우 (현재 설정에서는 해당 없음)
-				console.log("파일 갯수 : 1 ");
+				console.log("file number : 1 ");
 				
 				originalname = files[index].originalname;
 				filename = files[index].name;
@@ -93,7 +93,7 @@ remote.start = function () {
 				size = files[index].size;
 			}
 			
-			console.log('현재 파일 정보 : ' + originalname + ', ' + filename + ', '
+			console.log('filename : ' + originalname + ', ' + filename + ', '
 					+ mimetype + ', ' + size);
 			
 			// 클라이언트에 응답 전송

@@ -19,15 +19,26 @@
     "enabled": true,
     "port": 8080
   },
-  "giphy": {
-    "key": "dc6zaTOxFJmzC"
-  },
-  "geoPosition": {
-    "latitude": "37.497942",
-    "longitude": "127.0254323"
+  "fitbit": {
+    "timeout": 10000,
+    "uris": {
+      "authorizationUri": "https://www.fitbit.com",
+      "authorizationPath": "/oauth2/authorize",
+      "tokenUri": "https://api.fitbit.com",
+      "tokenPath": "/oauth2/token"
+    },
+    "authorization_uri": {
+      "redirect_uri": "http://localhost:4000/fitbit_auth_callback/",
+      "response_type": "code",
+      "scope": "activity nutrition profile settings sleep social weight heartrate",
+      "state": "3(#0/!~"
+    }
   },
   "greeting": {
     "option": "allDay"
+  },
+  "giphy": {
+    "key": "dc6zaTOxFJmzC"
   },
   "autoTimer": {
     "mode": "disabled",
@@ -44,26 +55,15 @@
   "lastfm": {
     "refreshInterval": 0.6
   },
-  "fitbit": {
-    "timeout": 10000,
-    "uris": {
-      "authorizationUri": "https://www.fitbit.com",
-      "authorizationPath": "/oauth2/authorize",
-      "tokenUri": "https://api.fitbit.com",
-      "tokenPath": "/oauth2/token"
-    },
-    "authorization_uri": {
-      "redirect_uri": "http://localhost:4000/fitbit_auth_callback/",
-      "response_type": "code",
-      "scope": "activity nutrition profile settings sleep social weight heartrate",
-      "state": "3(#0/!~"
-    }
+  "geoPosition": {
+    "latitude": "37.497942",
+    "longitude": "127.0254323"
   },
   "traffic": {
     "refreshInterval": "5"
   },
   "forecast": {
-    "key":"af0d2abfff4ec7159017213ad753ddb8",
+    "key": "af0d2abfff4ec7159017213ad753ddb8",
     "units": "auto",
     "refreshInterval": 2
   },

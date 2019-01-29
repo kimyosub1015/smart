@@ -48,7 +48,7 @@ function createWindow() {
 	for (var i in displays) {
 		if (displays[i].bounds.x > 0 || displays[i].bounds.y > 0) {
 			externalDisplay = displays[i]
-			break
+			break;
 		}
 	}
 
@@ -220,3 +220,5 @@ app.on('will-quit', function () {
 var tx = "Hello Smartmirror?";
 console.log(tx);
 console.log("hello?");
+
+//const imgup = require('./remote/imgup.js')

@@ -259,7 +259,6 @@ $(function () {
 		}, timeOutMillis)
 	}
 
-
-
+	console.log("start web server");
 
 })

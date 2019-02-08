@@ -220,5 +220,3 @@ app.on('will-quit', function () {
 var tx = "Hello Smartmirror?";
 console.log(tx);
 console.log("hello?");
-
-//const imgup = require('./remote/imgup.js')

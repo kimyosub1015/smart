@@ -8,11 +8,12 @@ remote.start = function () {
 	const app = express()
 	const fs = require('fs')
 	const getConfigSchema = require('./remote/config.schema.js')
-	const multer = require('multer');
+	var multer = require('multer');
+	var connect = require('connect');
+	var crypto = require('crypto');
 	console.log("start web server");
 
 	//var imgapp = express();
-
 	let config = ""
 	let configDefault = ""
 	let configJSON = ""
@@ -39,8 +40,7 @@ remote.start = function () {
 	getFiles();
 	const static = require('serve-static');
 	const path = require('path');
-	app.use('/public', static(path.join(__dirname, 'public')));
-	app.use('/uploads', static(path.join(__dirname, 'uploads')));
+	/*
 	var storage = multer.diskStorage({
 		destination: function (req, file, callback) {
 			callback(null, './app/img')
@@ -57,60 +57,40 @@ remote.start = function () {
 			fileSize: 1024 * 1024 * 1024
 		}
 	});
-	var router = express.Router();
-	app.route('/process/photo').post(upload.array('photo', 1), function(req, res) {
-		console.log('/process/photo');
-		
-		try {
-			var files = req.files;
-		
-			console.dir('#===== upload information =====#')
-			console.dir(req.files[0]);
-			console.dir('#=====#')
-			
-			// 현재의 파일 정보를 저장할 변수 선언
-			var originalname = '',
-				filename = '',
-				mimetype = '',
-				size = 0;
-			
-			if (Array.isArray(files)) {   // 배열에 들어가 있는 경우 (설정에서 1개의 파일도 배열에 넣게 했음)
-				console.log("file account from array : %d", files.length);
-				
-				for (var index = 0; index < files.length; index++) {
-					originalname = files[index].originalname;
-					filename = files[index].filename;
-					mimetype = files[index].mimetype;
-					size = files[index].size;
+	*/
+	//파일 용량 리미트, 이건 적용한다.
+	var storage = multer.diskStorage({
+		destination: './app/img',
+		filename: function(req, file, cb) {
+			return crypto.pseudoRandomBytes(16, function(err, raw) {
+				if (err) {
+					return cb(err);
 				}
-				
-			} else {   // 배열에 들어가 있지 않은 경우 (현재 설정에서는 해당 없음)
-				console.log("file number : 1 ");
-				
-				originalname = files[index].originalname;
-				filename = files[index].name;
-				mimetype = files[index].mimetype;
-				size = files[index].size;
-			}
-			
-			console.log('filename : ' + originalname + ', ' + filename + ', '
-					+ mimetype + ', ' + size);
-			
-			// 클라이언트에 응답 전송
-			res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
-			res.write('<h3>파일 업로드 성공</h3>');
-			res.write('<hr/>');
-			res.write('<p>원본 파일명 : ' + originalname + ' -> 저장 파일명 : ' + filename + '</p>');
-			res.write('<p>MIME TYPE : ' + mimetype + '</p>');
-			res.write('<p>파일 크기 : ' + size + '</p>');
-			res.end();
-			
-		} catch(err) {
-			console.dir(err.stack);
-		}	
-			
+				return cb(null, "" + (raw.toString('hex')) + (path.extname(file.originalname)));
+			});
+		}
 	});
-	app.use('/', router);
+	
+	
+	// Post files
+	app.post("/upload", multer({
+		storage: storage
+	}).single('upload'), function(req, res) {
+		console.log(req.file);
+		console.log(req.body);
+		res.redirect("/uploads/" + req.file.filename);
+		console.log(req.file.filename);
+		return res.status(200).end();
+	});
+	
+	app.get('/uploads/:upload', function (req, res){
+		var file = req.params.upload;
+		console.log(req.params.upload);
+		var img = fs.readFileSync(__dirname + "/app/img/" + file);
+		res.writeHead(200, {'Content-Type': 'image/jpg' });
+		res.end(img, 'binary');
+	
+	});
 
 	const server = require('http').createServer(app)
 

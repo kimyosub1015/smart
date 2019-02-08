@@ -41,6 +41,7 @@
   "dependencies": {
     "angular-moment": "^1.0.1",
     "annyang": "^2.6.0",
+    "connect": "^3.6.6",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",
     "electron-json-storage": "2.0.0",

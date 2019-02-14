@@ -6,11 +6,13 @@ let remote = new stream.Writable()
 remote.start = function () {
 	var express = require('express')
 	const app = express()
-	const fs = require('fs')
+	var fs = require('fs')
 	const getConfigSchema = require('./remote/config.schema.js')
 	var multer = require('multer');
 	var connect = require('connect');
 	var crypto = require('crypto');
+	var x = 1;
+	//var lth;
 	console.log("start web server");
 
 	//var imgapp = express();
@@ -18,6 +20,7 @@ remote.start = function () {
 	let configDefault = ""
 	let configJSON = ""
 	let configPath = __dirname + "/config.json"
+	var imgFolder = '../app/img/';
 	//config.json 파일을 불러온다!
 	let configDefaultPath = __dirname + "/remote/.config.default.json"
 
@@ -59,18 +62,21 @@ remote.start = function () {
 	});
 	*/
 	//파일 용량 리미트, 이건 적용한다.
+
 	var storage = multer.diskStorage({
 		destination: './app/img',
 		filename: function(req, file, cb) {
-			return crypto.pseudoRandomBytes(16, function(err, raw) {
-				if (err) {
-					return cb(err);
-				}
-				return cb(null, "" + (raw.toString('hex')) + (path.extname(file.originalname)));
-			});
+			if(x<11){
+				cb(null, "picture"+x+".jpg");
+				x++;
+			}			
+			else if(x == 11){
+				x = 1;
+				cb(null, "picture"+x+".jpg");
+			}
+			
 		}
 	});
-	
 	
 	// Post files
 	app.post("/upload", multer({

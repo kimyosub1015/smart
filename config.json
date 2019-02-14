@@ -1,6 +1,6 @@
 {
   "general": {
-    "language": "ko-KR",
+    "language": "en-US",
     "layout": "main",
     "commandsPerPage": 10
   },
@@ -19,6 +19,34 @@
     "enabled": true,
     "port": 8080
   },
+  "greeting": {
+    "option": "allDay"
+  },
+  "geoPosition": {
+    "latitude": "37.497942",
+    "longitude": "127.0254323"
+  },
+  "giphy": {
+    "key": "UavcH3iVA6qB5rbYZd3H81jmh9QKxvVY"
+  },
+  "lastfm": {
+    "refreshInterval": 0.6
+  },
+  "calendar": {
+    "maxResults": 9,
+    "maxDays": 9,
+    "showCalendarNames": true
+  },
+  "rss": {
+    "refreshInterval": 120
+  },
+  "autoTimer": {
+    "mode": "disabled",
+    "autoWake": "07:00:00",
+    "autoSleep": 40,
+    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
+    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
+  },
   "fitbit": {
     "timeout": 10000,
     "uris": {
@@ -34,40 +62,12 @@
       "state": "3(#0/!~"
     }
   },
-  "greeting": {
-    "option": "allDay"
-  },
-  "giphy": {
-    "key": "dc6zaTOxFJmzC"
-  },
-  "autoTimer": {
-    "mode": "disabled",
-    "autoWake": "07:00:00",
-    "autoSleep": 40,
-    "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
-    "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
-  },
-  "calendar": {
-    "maxResults": 9,
-    "maxDays": 9,
-    "showCalendarNames": true
-  },
-  "lastfm": {
-    "refreshInterval": 0.6
-  },
-  "geoPosition": {
-    "latitude": "37.497942",
-    "longitude": "127.0254323"
-  },
-  "traffic": {
-    "refreshInterval": "5"
-  },
   "forecast": {
     "key": "af0d2abfff4ec7159017213ad753ddb8",
     "units": "auto",
     "refreshInterval": 2
   },
-  "rss": {
-    "refreshInterval": 120
+  "traffic": {
+    "refreshInterval": "5"
   }
 }

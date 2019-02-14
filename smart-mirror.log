@@ -1,0 +1,12 @@
+[Tue Feb 12 2019 15:08:16 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'key' of undefined| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/search/controller.js Line: 14
+[Wed Feb 13 2019 13:29:25 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 13:29:34 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 13:30:01 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 13:30:07 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 13:30:29 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 13:31:23 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 13:32:00 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 13:32:13 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 13:32:20 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 13:33:01 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'length' of null| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/timer/service.js Line: 30
+[Wed Feb 13 2019 18:42:51 GMT+0900 (대한민국 표준시)] Uncaught SyntaxError: Unexpected token )| Script: file:///C:/Users/dytjq/Desktop/smart/plugins/helloworld/controller.js Line: 14

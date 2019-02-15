@@ -1,4 +1,4 @@
-<div class="weather" ng-controller="Weather">
+<div class="weather" ng-controller="Weather" ng-show="focus != 'img'" ng-controller="Img">
     <div class="weather-today">
         <span class="icon dimmed wi {{currentForecast.wi}}"></span>
         <canvas id="icon_weather_current" width="90" height="70"></canvas>

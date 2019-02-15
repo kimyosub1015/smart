@@ -44,10 +44,17 @@
       <div ng-include="'plugins/ha-display/index.html'"></div>
     </div>
   </div>
+  <div class="backImg">
+    <div class="Imgg">
+      <div ng-controller="Img"> 
+        <div ng-include="plugins/backimg/index.html"></div> 
+      </div>
+    </div>
+  </div>
   <div class="container" ng-class="(listening == true)?'listening':'not-listening'">
     <div class="middle-center">
       <h1 ng-controller="Greeting" ng-bind="greeting" ng-cloak></h1>
-      <div ng-include="'plugins/remote/index.html'"></div>
+      
       <div ng-include="'plugins/soundcloud/index.html'"></div>
       <div ng-include="'plugins/map/index.html'"></div>
       <div ng-include="'plugins/xkcd/index.html'"></div>
@@ -58,7 +65,8 @@
       <div ng-include="'plugins/reminder/index.html'"></div>
       <div ng-include="'plugins/timer/index.html'"></div>
       <div ng-include="'plugins/todoist/index.html'"></div>
-      <div ng-include="'plugins/helloworld/index.html'"></div>
+      <div ng-include="'plugins/backimg/index.html'"></div>
+
     </div>
     <div class="bottom-center">
       <!-- Command list -->
@@ -71,6 +79,7 @@
     <div class="bottom-left">
       <div ng-include="'plugins/fitbit/index.html'" ng-if="config.fitbit.creds"></div>
       <div ng-include="'plugins/scrobbler/index.html'"></div>
+      <div ng-include="'plugins/remote/index.html'"></div>
     </div>
     <div class="bottom-right">
       <!-- Someday something will live here -->
@@ -140,7 +149,7 @@
   <script src="plugins/maker/controller.js"></script>
   <script src="plugins/todoist/controller.js"></script>
   <script src="plugins/ha-display/controller.js"></script>
-  <script src="plugins/helloworld/controller.js"></script>
+  <script src="plugins/backimg/controller.js"></script>
 
 </body>
 

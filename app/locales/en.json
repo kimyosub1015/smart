@@ -210,6 +210,11 @@
             "voice": "Show remote (QR code) (QR) (link)",
             "description": "Show the local IP of the Remote App URL"
         },
+        "hide_remote":{
+            "text": "Hide Remote Link",
+            "voice": "Hide remote",
+            "description": "Hide the local IP of the Remote App URL"
+        },
         "todoist_show": {
             "text": "Show (my) ________ list",
             "voice": "Show (my) *project list",
@@ -224,6 +229,16 @@
             "text": "Remove ________ from (my) ________ list",
             "voice": "Remove *element from (my) *project list",
             "description": "Remove item from requested list."
+        },
+        "show_img": {
+            "text": "show img",
+            "voice": "show img",
+            "description": "이미지 보여줌."
+        },
+        "hide_img": {
+            "text": "hide img",
+            "voice": "hide img",
+            "description": "이미지 없앰."
         }
     },
     "fitbit": {

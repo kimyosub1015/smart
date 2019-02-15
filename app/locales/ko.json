@@ -219,6 +219,26 @@
             "text": "________항목________에서 제거해줘",
             "voice": "*element항목*project에서 제거해줘",
             "description": "음성인식된 항목을 TODO리스트에서 제거합니다."
+        },
+        "show_img": {
+            "text": "이미지 보여줘",
+            "voice": "이미지 보여줘",
+            "description": "이미지 보여줌."
+        },
+        "hide_img": {
+            "text": "이미지 내려",
+            "voice": "이미지 내려",
+            "description": "이미지 없앰."
+        },
+        "hide_remote":{
+            "text": "아이피주소 내려",
+            "voice": "아이피주소 내려",
+            "description": "환경설정을 위한 아이피주소를 숨깁니다."
+        },
+        "show_remoteQR":{
+            "text": "아이피주소 보여줘",
+            "voice": "아이피주소 보여줘",
+            "description": "환경설정을 위한 아이피주소를 보여줍니다."
         }
     },
     "fitbit": {

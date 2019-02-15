@@ -11,7 +11,7 @@ function Remote($scope, SpeechService, Focus) {
 				}
 			}
 		}
-		$scope.remoteText = addresses[0] + ":" + config.remote.port;
+		$scope.remoteText = addresses[0];
 		$scope.remoteImage = "https://chart.googleapis.com/chart?cht=qr&chs=400x400&chl=http://" + $scope.remoteText;
 		Focus.change("remote");
 	}
@@ -27,6 +27,9 @@ function Remote($scope, SpeechService, Focus) {
 		$scope.firstRun = true;
 		showRemote()
 	}
+	SpeechService.addCommand('hide_remote', function () {
+		Focus.change("default");
+	});
 }
 
 angular.module('SmartMirror')

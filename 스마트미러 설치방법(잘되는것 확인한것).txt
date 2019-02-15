@@ -1,0 +1,158 @@
+전체 설치순서
+==================================================================
+1) 라즈비안 이미지 굽고 그냥 korean 누르고 next 어쩌고 하기(인터넷 연결 잘되야 자동으로됨)
+====================================================================
+2) 한글 ibus 설정해보기 (stretch 버전에서)
+
+https://m.blog.naver.com/PostView.nhn?blogId=specialist0&logNo=221241859486&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+
+보고 따라하기
+=====================================================================
+3) evan cohen꺼 설치하기	
+curl -sL https://raw.githubusercontent.com/evancohen/smart-mirror/master/scripts/pi-install.sh | bash
+
+이러고 smart mirror 폴더가서 npm start 하면 에러뜸... 
+
+거기서 
+
+npm install electron-prebuilt	
+
+입력하면됨.
+===================================================================
+4) 마이크 및 스피커 설정
+
+(마이크설정 확인)
+$ arecord -l
+
+(스피커설정 확인)
+ $ aplay -l 
+
+\home\pi에   .asoundrc 파일을 만들고 아래코드를 입력한다.
+------------------------------------------
+pcm.!default {
+  type asym
+  capture.pcm "mic"
+  playback.pcm "speaker"
+}
+
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:1,0"
+  }
+}
+pcm.speaker {
+  type plug
+  slave {
+    pcm "hw:0,0"
+  }
+}
+---------------------------------------
+amixer cset numid=3 1  	//강제로 오디오로 연결시킴
+
+arecord --format=S16_LE --duration=5 --rate=16000 --file-type=raw out.raw   을 입력하고 녹음하고
+
+aplay --format=S16_LE --rate=16000 out.raw  을 입력하여 녹음된걸 확인하면 마이크,스피커 설정끝
+
+=================================== 아래 설정은 본인에 맞게 할것
+To output audio through the headphone jack:
+
+amixer cset numid=3 1
+To force the audio back through HDMI you can run:
+
+amixer cset numid=3 2
+====================================
+https://diy-project.tistory.com/88	여기서 자세한 설정법확인바람
+
+=============================================================================
+
+5)전체설정 관련 명령어
+
+sudo apt-get install libmagic-dev libatlas-base-de	(atlas 라는 선형대수 알고리즘 라이브러리임) 음성인식쪽에 쓰임
+
+=============================================================================
+
+6) 구글 클라우드 계정 및 스피치 기능 사용방법
+
+API 사용법
+
+0. 아래의 작업을 하기 전에 리눅스 오디오,마이크 설정을 먼저 하고 해야한다. .acsound 파일을 만들고 설정을 해야한다.
+
+(sudo apt-get install libatlas-base-dev  를 실행하여 libatlas-base-dev를 설치해야하는데 찾아보니 수치적으로 최적화된것을
+찾아주는 알고리즘인것 같다.) (snowboy 설치시 필수적으로 설치해야한다. 근데 그냥 해도 될것 같다.
+
+(sudo apt-get install sox libsox-fmt-all 를 실행하여 sox를 전체적으로 설치해준다.  sox는 audio utility로 음성관련 파일 변환작업
+을 해주는것 같다.
+
+1. google cloud platform 홈피에 가서 콘솔로 로그인하고 프로젝트를 만든다.
+
+2. 프로젝트 이름을 만들고 새로 생성한다.(key값 생성)
+
+3. API 및 서비스 항목에서 대시보드로 현재 내가 이용한 API 목록확인, 사용자인증정보에선 프로젝트 ID 확인
+라이브러리에서 내가 사용하고 싶은 API를 프로젝트 key값을 받고 사용할건지 아닐건지 선택한다.
+
+4. API 및 서비스 - > 사용자인증정보 -> 서비스계정으로 JSON 파일을 만든다. (auth파일 아님)
+
+5. GoogleCloud SDK 설치(설치하기 전에 6번에서 환경변수경로 설정을 먼저하고 해야한다.)
+
+https://jeongchul.tistory.com/544     정출이꺼에서 확인해보기(SDK설치법 및 gcloud 이용방법등이 나와있음..)
+다만 버전이 달라서 구글 API보는게 낫다.
+
+sdk 설치는 https://cloud.google.com/sdk/?hl=ko 여기에 가면된다.
+
+sdk 설치 후 gcloud로 음성인식을 실행해보자
+(이것도 구글 API문서랑 정출이꺼랑 섞어서 보자)
+https://cloud.google.com/speech-to-text/docs/quickstart-gcloud?hl=ko		<--gcloud 사용 음성인식
+
+
+6. 파일을 받고  리눅스면 bash.rc에 경로 설정을 한다. (.profile)에 해도된다. bash.rc가 더 직접적으로 연결된다.
+---------------------------------------
+
+## Google Cloud
+export GOOGLE_CLOUD_SDK_PATH=/home/pi/google-cloud-sdk	<--본인 sdk 경로
+export PATH=$PATH:$GOOGLE_CLOUD_SDK_PATH/bin			<--걍두기
+export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/smart-mirror/keyfile.json	<--본인경로
+#(만약위의 export를 그냥 명령어로 치면 할때마다 반복해야한다. 그러므로 bash.rc에 넣어두자
+
+--------------------------------------
+리눅스에서 환경변수를 추가하고 
+source ~/.bashrc
+를 입력하여 환경변수를 적용시킨다.
+다 하고 env 를 입력하여 환경변수가 등록되었는지 확인한다.
+
+윈도우는 환경변수에 GOOGLE_APPLICATION_CREDENTIALS="your/key/file/path/KeyFile.json" 를 추가하면 된다.
+
+(윈도우도 이렇게 3개 설정해야 할 것 같다.)
+export GOOGLE_CLOUD_SDK_PATH=/home/pi/google-cloud-sdk	<--본인 sdk 경로
+export PATH=$PATH:$GOOGLE_CLOUD_SDK_PATH/bin			<--걍두기
+export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/smart-mirror/keyfile.json	<--본인경로
+()
+
+7. 경로 추가 후 
+gcloud init  실행 후
+
+프로젝트 id 입력하기
+
+https://cloud.google.com/speech-to-text/docs/streaming-recognize    이걸보고 따라서 실행하면 된다.
+
+8. 음성인식에 대한 기본 개념이다.
+https://cloud.google.com/speech-to-text/docs/basics
+
+
+9.테스트 해보기
+
+gcloud ml speech recognize 'gs://cloud-samples-tests/speech/brooklyn.flac' --language-code='en-US'
+
+"how old is the Brooklyn Bridge" 이런게 json 형식으로 뜨면 잘 설치가 된것이다.
+
+기본개념은 음성녹음 -> 파일 -> 구글서버 -> 인식 -> 텍스트  
+
+=============================================================================
+
+7) smart-mirror 폴더에서 npm run sonus 를 입력해서  "smart mirror" 를 외치고 말하면 말한것들이 찍힐 것이다.
+그런다음 npm start를 눌러서 사용하면 잘 되는것을 확인 할 수 있다.
+
+
+
+
+

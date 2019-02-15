@@ -5,7 +5,7 @@
     "commandsPerPage": 10
   },
   "speech": {
-    "device": "default",
+    "device": "plughw:1,0",
     "keyFilename": "./keyfile.json",
     "hotwords": [
       {
@@ -19,19 +19,15 @@
     "enabled": true,
     "port": 8080
   },
-  "rss": {
-    "refreshInterval": 120
+  "geoPosition": {
+    "latitude": "37.56667",
+    "longitude": "126.97806"
   },
   "giphy": {
     "key": "dc6zaTOxFJmzC"
   },
   "greeting": {
     "option": "allDay"
-  },
-  "calendar": {
-    "maxResults": 9,
-    "maxDays": 9,
-    "showCalendarNames": true
   },
   "autoTimer": {
     "mode": "disabled",
@@ -40,8 +36,19 @@
     "wakeCmd": "sudo ./scripts/raspi-monitor.sh on > /dev/null 2>&1",
     "sleepCmd": "sudo ./scripts/raspi-monitor.sh off > /dev/null 2>&1"
   },
+  "calendar": {
+    "maxResults": 9,
+    "maxDays": 9,
+    "showCalendarNames": true
+  },
+  "rss": {
+    "refreshInterval": 120
+  },
   "lastfm": {
     "refreshInterval": 0.6
+  },
+  "youtube": {
+    "key": "AIzaSyAXdIOa5Z5OfnOrXxPeCvhV0DWTeuW7_3U"
   },
   "fitbit": {
     "timeout": 10000,
@@ -58,25 +65,21 @@
       "state": "3(#0/!~"
     }
   },
-  "forecast": {
-    "key": "8909ebf6426c8dd1fd4a91edb232e8ca",
-    "units": "auto",
-    "refreshInterval": 2
-  },
-  "geoPosition": {
-    "latitude": "37.56667",
-    "longitude": "126.97806"
-  },
   "traffic": {
     "key": "ApcATdRZWrasFdIwcJ-X8PCN8kdw7a6OOALxNrRERHXZbZosPcYZe5ZcMOXQscMu",
     "refreshInterval": "5",
     "trips": [
       {
-        "name": "서울-수원",
+        "name": "판교-비트컴퓨터",
         "mode": "Driving",
-        "origin": "seoul",
-        "destination": "suwon"
+        "origin": "160, Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do, Republic of Korea",
+        "destination": "396, Gangnam-daero, Gangnam-gu, Seoul, Republic of Korea"
       }
     ]
+  },
+  "forecast": {
+    "key": "8909ebf6426c8dd1fd4a91edb232e8ca",
+    "units": "auto",
+    "refreshInterval": 2
   }
 }

@@ -73,7 +73,7 @@
 			$interval.cancel(energyStarTimer)
 			// restart it, so we don't drift towards 0 delay 
 			energyStarTimer = $interval(bleep, energyStarDelay);
-			// restart the main sleep timer
+			// restart the main sleep timero
 			service.startAutoSleepTimer();
 		}
 

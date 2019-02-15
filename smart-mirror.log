@@ -1,0 +1,8 @@
+[Tue Jan 29 2019 17:26:34 GMT+0900 (대한민국 표준시)] Uncaught ReferenceError: nextSlide is not defined| Script: file:///C:/study/smart%20master/smart/index.html#/ Line: 1
+[Tue Jan 29 2019 17:26:39 GMT+0900 (대한민국 표준시)] Uncaught ReferenceError: nextSlide is not defined| Script: file:///C:/study/smart%20master/smart/index.html#/ Line: 1
+[Tue Feb 12 2019 14:16:48 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'clientWidth' of null| Script: file:///C:/study/smart%20master/smart/plugins/backimg/controller.js Line: 28
+[Tue Feb 12 2019 14:19:02 GMT+0900 (대한민국 표준시)] Uncaught TypeError: Cannot read property 'clientWidth' of null| Script: file:///C:/study/smart%20master/smart/plugins/backimg/controller.js Line: 22
+[Thu Feb 14 2019 14:41:21 GMT+0900 (대한민국 표준시)] Uncaught SyntaxError: Unexpected end of input| Script: file:///C:/study/smart%20mirror/plugins/backimg/controller.js Line: 54
+[Thu Feb 14 2019 14:41:51 GMT+0900 (대한민국 표준시)] Uncaught SyntaxError: Unexpected end of input| Script: file:///C:/study/smart%20mirror/plugins/backimg/controller.js Line: 54
+[Thu Feb 14 2019 14:42:12 GMT+0900 (대한민국 표준시)] Uncaught SyntaxError: Unexpected end of input| Script: file:///C:/study/smart%20mirror/plugins/backimg/controller.js Line: 54
+[Thu Feb 14 2019 16:21:25 GMT+0900 (대한민국 표준시)] Uncaught SyntaxError: missing ) after argument list| Script: file:///C:/study/smart%20mirror/plugins/backimg/controller.js Line: 12
